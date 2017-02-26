@@ -144,6 +144,12 @@
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Population.h" />
+    <ClInclude Include="Puzzle.h" />
+    <ClInclude Include="Sudoku.h" />
+    <ClInclude Include="SudokuPopulation.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
