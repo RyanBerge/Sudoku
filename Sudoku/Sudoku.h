@@ -16,6 +16,14 @@ public:
 
 	std::vector<std::pair<int, bool>> getPuzzleData() const;
 
+	virtual bool operator==(const Puzzle& other);
+	virtual bool operator!=(const Puzzle& other);
+
+	virtual bool operator<(const Puzzle& other);
+	virtual bool operator>(const Puzzle& other);
+	virtual bool operator<=(const Puzzle& other);
+	virtual bool operator>=(const Puzzle& other);
+
 
 private:
 	//Where each integer represents a value in a cell and the corresponding bool

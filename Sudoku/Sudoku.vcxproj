@@ -144,9 +144,10 @@
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Sudoku.cpp" />
+    <ClCompile Include="SudokuFactory.cpp" />
     <ClCompile Include="SudokuFitness.cpp" />
     <ClCompile Include="SudokuPopulation.cpp" />
-    <ClCompile Include="SudokuReproduction.cpp" />
+    <ClCompile Include="SudokuOffspring.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Fitness.h" />
@@ -156,6 +157,7 @@
     <ClInclude Include="PuzzleFactory.h" />
     <ClInclude Include="Reproduction.h" />
     <ClInclude Include="Sudoku.h" />
+    <ClInclude Include="SudokuFactory.h" />
     <ClInclude Include="SudokuFitness.h" />
     <ClInclude Include="SudokuPopulation.h" />
     <ClInclude Include="SudokuOffspring.h" />

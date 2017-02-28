@@ -8,6 +8,6 @@ class SudokuOffspring : public Reproduction
 {
 public:
 	// Inherited via Reproduction
-	virtual Puzzle* makeOffspring(const Puzzle* parent) const override;
+	virtual Puzzle* makeOffspring(const Puzzle& parent) const override;
 
 };

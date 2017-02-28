@@ -63,6 +63,36 @@ std::vector<std::pair<int, bool>> Sudoku::getPuzzleData() const
 	return puzzleData;
 }
 
+bool Sudoku::operator==(const Puzzle & other)
+{
+	return false;
+}
+
+bool Sudoku::operator!=(const Puzzle & other)
+{
+	return false;
+}
+
+bool Sudoku::operator<(const Puzzle & other)
+{
+	return false;
+}
+
+bool Sudoku::operator>(const Puzzle & other)
+{
+	return false;
+}
+
+bool Sudoku::operator<=(const Puzzle & other)
+{
+	return false;
+}
+
+bool Sudoku::operator>=(const Puzzle & other)
+{
+	return false;
+}
+
 std::ostream& operator<<(std::ostream& sout, const Sudoku& puzzle)
 {
 	puzzle.PrintPuzzle(sout);

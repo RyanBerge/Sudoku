@@ -8,7 +8,7 @@ public:
 	SudokuPopulation(PuzzleFactory* factory, Fitness* fitness);
 	virtual ~SudokuPopulation();
 
-	virtual void createPopulation(int initialPopulation) = 0;
+	virtual void createPopulation(int initialSize, const Puzzle& base);
 	virtual bool cull(float ratio) override;
 	virtual void newGeneration(int numChildren) override;
 	virtual int bestFitness() const override;

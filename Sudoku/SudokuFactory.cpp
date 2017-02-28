@@ -7,12 +7,12 @@ SudokuFactory::SudokuFactory(Reproduction* reproduction)
 		throw std::invalid_argument("SudokuOffspring object required.");
 }
 
-Puzzle* SudokuFactory::createPuzzle(const Puzzle* parent, bool mutation) const
+Puzzle* SudokuFactory::createPuzzle(const Puzzle& parent, bool mutation) const
 {
 	if (mutation)
 		return reproduction->makeOffspring(parent);
 
-	const Sudoku* puzzle = dynamic_cast<const Sudoku*>(parent);
+	const Sudoku* puzzle = dynamic_cast<const Sudoku*>(&parent);
 	if (puzzle == nullptr)
 		throw std::invalid_argument("Sudoku object required.");
 

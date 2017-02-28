@@ -11,6 +11,16 @@ SudokuPopulation::~SudokuPopulation()
 {
 }
 
+void SudokuPopulation::createPopulation(int initialSize, const Puzzle& base)
+{
+	for (int i = 0; i < initialSize; ++i)
+	{
+		Puzzle* puzzle = factory->createPuzzle(base, false);
+		puzzle->setFitness(fitness->howFit(*puzzle));
+		generation.push(puzzle);
+	}
+}
+
 bool SudokuPopulation::cull(float ratio)
 {
 	return false;
@@ -18,22 +28,22 @@ bool SudokuPopulation::cull(float ratio)
 
 void SudokuPopulation::newGeneration(int numChildren)
 {
-	while (!generation.empty())
-	{
-		survivers.push_back(generation.top());
-		generation.pop();
-	}
+	//while (!generation.empty())
+	//{
+	//	survivers.push_back(generation.top());
+	//	generation.pop();
+	//}
 
-	for (int i = 0; i < survivers.size(); ++i)
-	{
-		for (int j = 0; j < numChildren; ++j)
-		{
-			Puzzle* newPuzzle;
-			newPuzzle = reproduction->makeOffspring(survivers[i]);
-			newPuzzle->setFitness(fitness->howFit(newPuzzle));
-			generation.push(newPuzzle);
-		}
-	}
+	//for (int i = 0; i < survivers.size(); ++i)
+	//{
+	//	for (int j = 0; j < numChildren; ++j)
+	//	{
+	//		Puzzle* newPuzzle;
+	//		newPuzzle = reproduction->makeOffspring(survivers[i]);
+	//		newPuzzle->setFitness(fitness->howFit(newPuzzle));
+	//		generation.push(newPuzzle);
+	//	}
+	//}
 }
 
 int SudokuPopulation::bestFitness() const

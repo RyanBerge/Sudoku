@@ -1,8 +1,8 @@
 #include "SudokuOffspring.h"
 
-Puzzle* SudokuOffspring::makeOffspring(const Puzzle* parent) const
+Puzzle* SudokuOffspring::makeOffspring(const Puzzle& parent) const
 {
-	const Sudoku* puzzle = dynamic_cast<const Sudoku*>(parent);
+	const Sudoku* puzzle = dynamic_cast<const Sudoku*>(&parent);
 	if (puzzle == nullptr)
 		throw std::invalid_argument("Sudoku object required.");
 

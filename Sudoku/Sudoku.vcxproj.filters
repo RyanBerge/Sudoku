@@ -24,10 +24,13 @@
     <ClCompile Include="SudokuFitness.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SudokuReproduction.cpp">
+    <ClCompile Include="SudokuPopulation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SudokuPopulation.cpp">
+    <ClCompile Include="SudokuFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SudokuOffspring.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -60,6 +63,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PuzzleFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SudokuFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

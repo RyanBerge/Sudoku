@@ -4,5 +4,5 @@
 class PuzzleFactory
 {
 public:
-	virtual Puzzle* createPuzzle(const Puzzle* parent, bool mutation) const = 0;
+	virtual Puzzle* createPuzzle(const Puzzle& parent, bool mutation) const = 0;
 };

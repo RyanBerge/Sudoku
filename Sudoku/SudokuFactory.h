@@ -8,7 +8,7 @@ public:
 	SudokuFactory(Reproduction* reproduction);
 
 	// Inherited via PuzzleFactory
-	virtual Puzzle* createPuzzle(const Puzzle* parent, bool mutation) const override;
+	virtual Puzzle* createPuzzle(const Puzzle& parent, bool mutation) const override;
 
 private:
 	SudokuOffspring* reproduction;
