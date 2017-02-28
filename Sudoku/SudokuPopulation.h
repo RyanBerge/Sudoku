@@ -1,13 +1,19 @@
 #pragma once
+#include <queue>
 #include "Population.h"
 
 class SudokuPopulation : public Population
 {
 public:
-	virtual ~SudokuPopulation();
-	virtual bool cull(float ratio);
-	virtual void newGeneration(int numChildren);
-	virtual int bestFitness() const;
-	virtual Puzzle* bestIndividual() const;
+	SudokuPopulation(PuzzleFactory* factory, Reproduction* reproduction, Fitness* fitness);
 
+	virtual ~SudokuPopulation();
+	virtual bool cull(float ratio) override;
+	virtual void newGeneration(int numChildren) override;
+	virtual int bestFitness() const override;
+	virtual Puzzle* bestIndividual() const override;
+
+private:
+	std::priority_queue<Puzzle*> generation;
+	std::vector<Puzzle*> survivers;
 };

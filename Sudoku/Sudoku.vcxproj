@@ -143,12 +143,22 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Sudoku.cpp" />
+    <ClCompile Include="SudokuFitness.cpp" />
+    <ClCompile Include="SudokuPopulation.cpp" />
+    <ClCompile Include="SudokuReproduction.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Fitness.h" />
+    <ClInclude Include="GeneticAlgorithm.h" />
     <ClInclude Include="Population.h" />
     <ClInclude Include="Puzzle.h" />
+    <ClInclude Include="PuzzleFactory.h" />
+    <ClInclude Include="Reproduction.h" />
     <ClInclude Include="Sudoku.h" />
+    <ClInclude Include="SudokuFitness.h" />
     <ClInclude Include="SudokuPopulation.h" />
+    <ClInclude Include="SudokuOffspring.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
