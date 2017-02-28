@@ -13,16 +13,17 @@ public:
 	virtual bool ReadPuzzle(std::istream& sin) override;
 	virtual void PrintPuzzle(std::ostream& sout) const override;
 	virtual void setFitness(const int fitness) override;
+	virtual int getFitness() const override;
 
 	std::vector<std::pair<int, bool>> getPuzzleData() const;
 
-	virtual bool operator==(const Puzzle& other);
-	virtual bool operator!=(const Puzzle& other);
+	virtual bool operator==(const Puzzle& other) const;
+	virtual bool operator!=(const Puzzle& other) const;
 
-	virtual bool operator<(const Puzzle& other);
-	virtual bool operator>(const Puzzle& other);
-	virtual bool operator<=(const Puzzle& other);
-	virtual bool operator>=(const Puzzle& other);
+	virtual bool operator<(const Puzzle& other) const;
+	virtual bool operator>(const Puzzle& other) const;
+	virtual bool operator<=(const Puzzle& other) const;
+	virtual bool operator>=(const Puzzle& other) const;
 
 
 private:

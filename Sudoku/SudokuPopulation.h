@@ -16,5 +16,4 @@ public:
 
 private:
 	std::priority_queue<Puzzle*> generation;
-	std::vector<Puzzle*> survivers;
 };

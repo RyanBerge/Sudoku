@@ -15,6 +15,5 @@ public:
 
 protected:
 	PuzzleFactory* factory;
-	Reproduction* reproduction;
 	Fitness* fitness;
 };

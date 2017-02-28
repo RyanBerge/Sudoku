@@ -58,39 +58,52 @@ void Sudoku::setFitness(const int fitness)
 	this->fitness = fitness;
 }
 
+int Sudoku::getFitness() const
+{
+	return fitness;
+}
+
 std::vector<std::pair<int, bool>> Sudoku::getPuzzleData() const
 {
 	return puzzleData;
 }
 
-bool Sudoku::operator==(const Puzzle & other)
+bool Sudoku::operator==(const Puzzle& other) const
 {
-	return false;
+	std::vector<std::pair<int, bool>> otherData;
+
+	for (int i = 0; i < otherData.size(); ++i)
+	{
+		if (this->puzzleData[i] != otherData[i])
+			return false;
+	}
+
+	return true;
 }
 
-bool Sudoku::operator!=(const Puzzle & other)
+bool Sudoku::operator!=(const Puzzle & other) const
 {
-	return false;
+	return !(*this == other);
 }
 
-bool Sudoku::operator<(const Puzzle & other)
+bool Sudoku::operator<(const Puzzle& other) const
 {
-	return false;
+	return this->fitness < other.getFitness();
 }
 
-bool Sudoku::operator>(const Puzzle & other)
+bool Sudoku::operator>(const Puzzle & other) const
 {
-	return false;
+	return this->fitness > other.getFitness();
 }
 
-bool Sudoku::operator<=(const Puzzle & other)
+bool Sudoku::operator<=(const Puzzle & other) const
 {
-	return false;
+	return this->fitness <= other.getFitness();
 }
 
-bool Sudoku::operator>=(const Puzzle & other)
+bool Sudoku::operator>=(const Puzzle & other) const
 {
-	return false;
+	return this->fitness >= other.getFitness();
 }
 
 std::ostream& operator<<(std::ostream& sout, const Sudoku& puzzle)
