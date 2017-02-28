@@ -1,15 +1,16 @@
 #pragma once
-#include "Population.h"
-#include "Fitness.h"
-#include "Reproduction.h"
-#include "PuzzleFactory.h"
+#include "SudokuPopulation.h"
+#include "SudokuFitness.h"
+#include "SudokuOffspring.h"
+#include "SudokuFactory.h"
 
 class GeneticAlgorithm
 {
 public:
-	//virtual void setFitness(const Fitness* fitness) { this->fitness = fitness; }
-	//virtual void setReproduction(const Reproduction* reproduction) { this->reproduction = reproduction; }
+	GeneticAlgorithm(std::string puzzleType, int initialPopulation, const Puzzle& base);
+	void Iterate(float cullRatio, int numChildren);
+	void PrintBestSolution(std::ostream& sout);
 
 private:
-
+	Population* population;
 };

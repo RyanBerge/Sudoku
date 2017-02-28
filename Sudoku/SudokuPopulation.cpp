@@ -23,7 +23,7 @@ SudokuPopulation::~SudokuPopulation()
 	{
 		Puzzle* temp = generation.top();
 		generation.pop();
-		if (temp != nullptr)
+		if (temp == nullptr)
 		{
 			delete temp;
 			temp = nullptr;
@@ -58,11 +58,11 @@ bool SudokuPopulation::cull(float ratio)
 		generation.pop();
 	}
 
-	for (int i = 0; i < generation.size(); ++i)
+	while (!generation.empty())
 	{
 		Puzzle* temp = generation.top();
 		generation.pop();
-		if (temp != nullptr)
+		if (temp == nullptr)
 			delete temp;
 		temp = nullptr;
 	}

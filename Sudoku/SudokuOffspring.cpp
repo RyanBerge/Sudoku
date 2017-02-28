@@ -17,5 +17,5 @@ Puzzle* SudokuOffspring::makeOffspring(const Puzzle& parent) const
 		}
 	}
 
-	return nullptr;
+	return new Sudoku(sudokuData);
 }

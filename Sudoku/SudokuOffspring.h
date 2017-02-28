@@ -2,7 +2,7 @@
 #include "Reproduction.h"
 #include "Sudoku.h"
 
-#define MUTATION_THRESHOLD 5
+#define MUTATION_THRESHOLD 15
 
 class SudokuOffspring : public Reproduction
 {

@@ -18,3 +18,9 @@ public:
 	virtual bool operator>=(const Puzzle& other) const = 0;
 
 };
+
+class PuzzleLessComparator
+{
+public:
+	bool operator()(Puzzle* left, Puzzle* right) { return (*left > *right); }
+};
