@@ -1,6 +1,6 @@
 #include "SudokuPopulation.h"
 
-SudokuPopulation::SudokuPopulation(PuzzleFactory* factory, Reproduction* reproduction, Fitness* fitness)
+SudokuPopulation::SudokuPopulation(PuzzleFactory* factory, Fitness* fitness)
 {
 	this->factory = factory;
 	this->reproduction = reproduction;

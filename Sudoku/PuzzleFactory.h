@@ -1,8 +1,8 @@
 #pragma once
-#include "Puzzle.h"
+#include "Sudoku.h"
 
 class PuzzleFactory
 {
 public:
-	virtual Puzzle* createPuzzle() = 0;
+	virtual Puzzle* createPuzzle(const Puzzle* parent, bool mutation) const = 0;
 };

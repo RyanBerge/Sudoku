@@ -58,6 +58,11 @@ void Sudoku::setFitness(const int fitness)
 	this->fitness = fitness;
 }
 
+std::vector<std::pair<int, bool>> Sudoku::getPuzzleData() const
+{
+	return puzzleData;
+}
+
 std::ostream& operator<<(std::ostream& sout, const Sudoku& puzzle)
 {
 	puzzle.PrintPuzzle(sout);
