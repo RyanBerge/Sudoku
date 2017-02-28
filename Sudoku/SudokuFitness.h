@@ -1,5 +1,6 @@
 #pragma once
 #include "Fitness.h"
+#include "Sudoku.h"
 
 class SudokuFitness : public Fitness
 {
