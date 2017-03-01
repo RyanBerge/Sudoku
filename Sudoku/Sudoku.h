@@ -8,8 +8,10 @@ class Sudoku : public Puzzle
 {
 public:
 	// Inherited via Puzzle
-	Sudoku() { puzzleData = std::vector<std::pair<int, bool>>(PUZZLE_SIZE); fitness = -1; }
+	Sudoku();
 	Sudoku(std::vector<std::pair<int, bool>> data) : puzzleData(data), fitness(-1) { }
+	virtual ~Sudoku();
+
 	virtual bool ReadPuzzle(std::istream& sin) override;
 	virtual void PrintPuzzle(std::ostream& sout) const override;
 	virtual void setFitness(const int fitness) override;

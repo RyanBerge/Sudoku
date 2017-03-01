@@ -15,5 +15,5 @@ public:
 	virtual Puzzle* bestIndividual() const override;
 
 private:
-	std::priority_queue<Puzzle*, std::vector<Puzzle*>, PuzzleLessComparator> generation;
+	std::priority_queue<Puzzle*, std::vector<Puzzle*>, PuzzleComparator> generation;
 };

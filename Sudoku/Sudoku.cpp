@@ -2,6 +2,16 @@
 
 using std::endl;
 
+Sudoku::Sudoku() 
+{ 
+	puzzleData = std::vector<std::pair<int, bool>>(PUZZLE_SIZE);
+	fitness = -1;
+}
+
+Sudoku::~Sudoku()
+{
+	puzzleData.clear();
+}
 
 //Reads the first 81 integers found in the input stream and fills the puzzleData member.
 //When a non-zero integer is found, it treats that cell as immutable. Cells with a zero

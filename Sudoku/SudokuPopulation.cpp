@@ -23,7 +23,7 @@ SudokuPopulation::~SudokuPopulation()
 	{
 		Puzzle* temp = generation.top();
 		generation.pop();
-		if (temp == nullptr)
+		if (temp != nullptr)
 		{
 			delete temp;
 			temp = nullptr;
@@ -35,12 +35,14 @@ SudokuPopulation::~SudokuPopulation()
 
 void SudokuPopulation::createPopulation(int initialSize, const Puzzle& base)
 {
+	int a = 3;
 	for (int i = 0; i < initialSize; ++i)
 	{
 		Puzzle* puzzle = factory->createPuzzle(base, false);
 		puzzle->setFitness(fitness->howFit(*puzzle));
 		generation.push(puzzle);
 	}
+	int b = 2;
 }
 
 bool SudokuPopulation::cull(float ratio)
@@ -62,7 +64,7 @@ bool SudokuPopulation::cull(float ratio)
 	{
 		Puzzle* temp = generation.top();
 		generation.pop();
-		if (temp == nullptr)
+		if (temp != nullptr)
 			delete temp;
 		temp = nullptr;
 	}
@@ -77,6 +79,7 @@ bool SudokuPopulation::cull(float ratio)
 
 void SudokuPopulation::newGeneration(int numChildren)
 {
+	//std::cout << "Population Size: " << generation.size() << std::endl;
 	std::vector<Puzzle*> survivors;
 
 	while (!generation.empty())
@@ -95,6 +98,8 @@ void SudokuPopulation::newGeneration(int numChildren)
 		}
 		generation.push(survivors[i]);
 	}
+
+	//std::cout << "Population Size: " << generation.size() << std::endl;
 }
 
 int SudokuPopulation::bestFitness() const

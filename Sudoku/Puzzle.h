@@ -4,6 +4,7 @@
 class Puzzle
 {
 public:
+	virtual ~Puzzle() { }
 	virtual bool ReadPuzzle(std::istream& sin) = 0;
 	virtual void PrintPuzzle(std::ostream& sout) const = 0;
 	virtual void setFitness(const int fitness) = 0;
@@ -19,7 +20,7 @@ public:
 
 };
 
-class PuzzleLessComparator
+class PuzzleComparator
 {
 public:
 	bool operator()(Puzzle* left, Puzzle* right) { return (*left > *right); }
