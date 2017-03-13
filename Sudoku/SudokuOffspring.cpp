@@ -1,8 +1,15 @@
+#include <chrono>
+#include <random>
 #include "SudokuOffspring.h"
 
-Puzzle* SudokuOffspring::makeOffspring(const Puzzle& parent) const
+
+Puzzle* SudokuOffspring::makeOffspring(Puzzle*  parent, int seed) const
 {
-	const Sudoku* puzzle = dynamic_cast<const Sudoku*>(&parent);
+	static thread_local std::mt19937 generator(seed);
+	std::uniform_int_distribution<int> mutation(1, 100);
+	std::uniform_int_distribution<int> distribution(1, 9);
+
+	const Sudoku* puzzle = dynamic_cast<const Sudoku*>(parent);
 	if (puzzle == nullptr)
 		throw std::invalid_argument("Sudoku object required.");
 
@@ -12,8 +19,8 @@ Puzzle* SudokuOffspring::makeOffspring(const Puzzle& parent) const
 	{
 		if (sudokuData[i].second)
 		{
-			if (rand() % 100 <= MUTATION_THRESHOLD)
-				sudokuData[i].first = rand() % 9 + 1;
+			if (mutation(generator) <= MUTATION_THRESHOLD)
+				sudokuData[i].first = distribution(generator);
 		}
 	}
 

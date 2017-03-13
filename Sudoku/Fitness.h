@@ -4,5 +4,5 @@
 class Fitness
 {
 public:
-	virtual int howFit(const Puzzle& puzzle) const = 0;
+	virtual int howFit(Puzzle*  puzzle) const = 0;
 };

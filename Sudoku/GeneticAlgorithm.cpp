@@ -1,10 +1,12 @@
 #include "GeneticAlgorithm.h"
 
-GeneticAlgorithm::GeneticAlgorithm(std::string puzzleType, int initialPopulation, const Puzzle& base)
+GeneticAlgorithm::GeneticAlgorithm(std::string puzzleType, int initialPopulation, Puzzle* base)
 {
 	if (puzzleType == "Sudoku")
 	{
-		population = new SudokuPopulation(new SudokuFactory(new SudokuOffspring()), new SudokuFitness());
+		//population = new SudokuPopulation(new SudokuFactory(new SudokuOffspring()), new SudokuFitness());
+		population = new ThreadedSudokuPopulation(new SudokuFactory(new SudokuOffspring()), new SudokuFitness());
+
 		population->createPopulation(initialPopulation, base);
 	}
 }

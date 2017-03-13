@@ -6,6 +6,8 @@ class SudokuFitness : public Fitness
 {
 public:
 	// Inherited via Fitness
-	virtual int howFit(const Puzzle& puzzle) const override;
+	virtual int howFit(Puzzle*  puzzle) const override;
 
+private:
+	int getBoxStart(int i) const;
 };

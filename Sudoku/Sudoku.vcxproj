@@ -149,6 +149,8 @@
     <ClCompile Include="SudokuFitness.cpp" />
     <ClCompile Include="SudokuPopulation.cpp" />
     <ClCompile Include="SudokuOffspring.cpp" />
+    <ClCompile Include="ThreadedSudokuFitness.cpp" />
+    <ClCompile Include="ThreadedSudokuPopulation.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Fitness.h" />
@@ -162,6 +164,8 @@
     <ClInclude Include="SudokuFitness.h" />
     <ClInclude Include="SudokuPopulation.h" />
     <ClInclude Include="SudokuOffspring.h" />
+    <ClInclude Include="ThreadedSudokuFitness.h" />
+    <ClInclude Include="ThreadedSudokuPopulation.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

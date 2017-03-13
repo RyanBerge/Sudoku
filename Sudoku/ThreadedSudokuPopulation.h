@@ -1,12 +1,15 @@
 #pragma once
 #include <queue>
+#include <thread>
+#include <mutex>
+#include <sstream>
 #include "Population.h"
 
-class SudokuPopulation : public Population
+class ThreadedSudokuPopulation : public Population
 {
 public:
-	SudokuPopulation(PuzzleFactory* factory, Fitness* fitness);
-	virtual ~SudokuPopulation();
+	ThreadedSudokuPopulation(PuzzleFactory* factory, Fitness* fitness);
+	virtual ~ThreadedSudokuPopulation();
 
 	virtual void createPopulation(int initialSize, Puzzle* base);
 	virtual bool cull(float ratio) override;
@@ -15,5 +18,9 @@ public:
 	virtual Puzzle* bestIndividual() const override;
 
 private:
+	void safeGenerationPush(Puzzle* puzzle);
+	void threadedAddNewPuzzle(Puzzle* base, bool mutation, int seedModifier);
+	std::mutex lock;
+
 	std::priority_queue<Puzzle*, std::vector<Puzzle*>, PuzzleComparator> generation;
 };

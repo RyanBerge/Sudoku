@@ -7,12 +7,17 @@ SudokuFactory::SudokuFactory(Reproduction* reproduction)
 		throw std::invalid_argument("SudokuOffspring object required.");
 }
 
-Puzzle* SudokuFactory::createPuzzle(const Puzzle& parent, bool mutation) const
+Puzzle* SudokuFactory::createPuzzle(Puzzle*  parent, bool mutation, int seedModifier) const
 {
-	if (mutation)
-		return reproduction->makeOffspring(parent);
+	int seed = clock() + seedModifier;
 
-	const Sudoku* puzzle = dynamic_cast<const Sudoku*>(&parent);
+	if (mutation)
+		return reproduction->makeOffspring(parent, seed);
+
+	static thread_local std::mt19937 generator(seed);
+	std::uniform_int_distribution<int> distribution(1, 9);
+
+	const Sudoku* puzzle = dynamic_cast<const Sudoku*>(parent);
 	if (puzzle == nullptr)
 		throw std::invalid_argument("Sudoku object required.");
 
@@ -21,7 +26,7 @@ Puzzle* SudokuFactory::createPuzzle(const Puzzle& parent, bool mutation) const
 	for (int i = 0; i < sudokuData.size(); ++i)
 	{
 		if (sudokuData[i].second)
-			sudokuData[i].first = rand() % 9 + 1;
+			sudokuData[i].first = distribution(generator);
 	}
 
 	return new Sudoku(sudokuData);

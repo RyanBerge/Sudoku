@@ -1,4 +1,6 @@
 #pragma once
+#include <random>
+#include <chrono>
 #include "SudokuOffspring.h"
 #include "PuzzleFactory.h"
 
@@ -8,7 +10,7 @@ public:
 	SudokuFactory(Reproduction* reproduction);
 
 	// Inherited via PuzzleFactory
-	virtual Puzzle* createPuzzle(const Puzzle& parent, bool mutation) const override;
+	virtual Puzzle* createPuzzle(Puzzle* parent, bool mutation, int seedModifier) const override;
 
 private:
 	SudokuOffspring* reproduction;
