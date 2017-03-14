@@ -1,18 +1,18 @@
 #pragma once
 #include <random>
 #include <chrono>
-#include "SudokuOffspring.h"
+#include "ThreadedSudokuOffspring.h"
 #include "PuzzleFactory.h"
 
-class SudokuFactory : public PuzzleFactory
+class ThreadedSudokuFactory : public PuzzleFactory
 {
 public:
-	SudokuFactory(Reproduction* reproduction);
+	ThreadedSudokuFactory(Reproduction* reproduction);
 
 	// Inherited via PuzzleFactory
 	virtual Puzzle* createPuzzle(Puzzle* parent, bool mutation, int seedModifier) const override;
 
 private:
-	SudokuOffspring* reproduction;
+	ThreadedSudokuOffspring* reproduction;
 
 };

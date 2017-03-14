@@ -4,7 +4,7 @@
 
 #define MUTATION_THRESHOLD 1
 
-class SudokuOffspring : public Reproduction
+class ThreadedSudokuOffspring : public Reproduction
 {
 public:
 	// Inherited via Reproduction

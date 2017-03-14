@@ -1,9 +1,9 @@
 #include <chrono>
 #include <random>
-#include "SudokuOffspring.h"
+#include "ThreadedSudokuOffspring.h"
 
 
-Puzzle* SudokuOffspring::makeOffspring(Puzzle*  parent, int seed) const
+Puzzle* ThreadedSudokuOffspring::makeOffspring(Puzzle*  parent, int seed) const
 {
 	static thread_local std::mt19937 generator(seed);
 	std::uniform_int_distribution<int> mutation(1, 100);
