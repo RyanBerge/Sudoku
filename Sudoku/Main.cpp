@@ -1,3 +1,16 @@
+/*--------------------------------------------------------------------------------------------------
+/	File:			Main.cpp
+/	Last Updated:	March 13th 2017
+/	Created On:		Visual Studio 2015 Community, Windows 7, C++11
+/	Created By:		E. Ryan Berge, CSS 343 Section B
+/
+/	Description:	The main entry point for the Genetic Algorithm Sudoku program. Optionally
+/					two or three command-line arguments: initial population size, number of
+/					generations, and the file to read from.  Creates a GeneticAlgorithm object
+/					and commands it to iterate a number of times equal to the number of generations.
+/
+/--------------------------------------------------------------------------------------------------*/
+
 #include <iostream>
 #include <fstream>
 #include <ctime>
@@ -17,8 +30,8 @@ int main(int argc, char* argv[])
 
 	if (argc < 3)
 	{
-		initialSize = 100;
-		numGenerations = 300;
+		initialSize = 50;
+		numGenerations = 50;
 	}
 	else
 	{

@@ -1,3 +1,12 @@
+/*--------------------------------------------------------------------------------------------------
+/	File:			Sudoku.cpp
+/	Last Updated:	March 13th 2017
+/	Created On:		Visual Studio 2015 Community, Windows 7, C++11
+/	Created By:		E. Ryan Berge, CSS 343 Section B
+/
+/	Description:	An implementation of the Population interface for Sudoku objects.
+/
+/--------------------------------------------------------------------------------------------------*/
 #include "SudokuPopulation.h"
 
 SudokuPopulation::SudokuPopulation(PuzzleFactory* factory, Fitness* fitness)
@@ -31,6 +40,8 @@ SudokuPopulation::~SudokuPopulation()
 	}
 }
 
+// Uses the PuzzleFactory object and the Fitness objects to create an initial
+// random population of Sudoku Puzzles.
 void SudokuPopulation::createPopulation(int initialSize, Puzzle* base)
 {
 	for (int i = 0; i < initialSize; ++i)
@@ -41,6 +52,8 @@ void SudokuPopulation::createPopulation(int initialSize, Puzzle* base)
 	}
 }
 
+// Eliminates the X% worst puzzles in the current population, where X is equal
+// to the culling ratio.
 bool SudokuPopulation::cull(float ratio)
 {
 	if (ratio < 0 || ratio > 1)
@@ -73,6 +86,8 @@ bool SudokuPopulation::cull(float ratio)
 	return true;
 }
 
+// Creates a new generation of Puzzles by mutating each puzzle in the 
+// current generation a number of times equal to numChildren.
 void SudokuPopulation::newGeneration(int numChildren)
 {
 	std::vector<Puzzle*> survivors;

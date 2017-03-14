@@ -30,9 +30,6 @@
     <ClCompile Include="GeneticAlgorithm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ThreadedSudokuFitness.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ThreadedSudokuPopulation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -75,9 +72,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PuzzleFactory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ThreadedSudokuFitness.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ThreadedSudokuPopulation.h">

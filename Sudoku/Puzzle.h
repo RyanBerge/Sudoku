@@ -1,3 +1,19 @@
+/*--------------------------------------------------------------------------------------------------
+/	File:			GeneticAlgorithm.h
+/	Last Updated:	March 13th 2017
+/	Created On:		Visual Studio 2015 Community, Windows 7, C++11
+/	Created By:		E. Ryan Berge, CSS 343 Section B
+/
+/	Description:	A generic interface for creating Puzzles for use with the Genetic Algorithm.
+/					Provides methods for reading puzzle info from a stream, printing the puzzle
+/					to a stream, and accessors for a fitness data member, as well as comparison
+/					operators.
+/
+/					Also contains a PuzzleComparator class that looks at two Puzzle pointers and
+/					compares the values contained at the memory locations (rather than comparing
+/					the pointers themselves).
+/
+/--------------------------------------------------------------------------------------------------*/
 #pragma once
 #include<iostream>
 

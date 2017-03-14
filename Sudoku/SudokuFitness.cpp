@@ -1,5 +1,20 @@
+/*--------------------------------------------------------------------------------------------------
+/	File:			Sudoku.cpp
+/	Last Updated:	March 13th 2017
+/	Created On:		Visual Studio 2015 Community, Windows 7, C++11
+/	Created By:		E. Ryan Berge, CSS 343 Section B
+/
+/	Description:	An implementation of the Fitness interface for Sudoku objects.
+/
+/--------------------------------------------------------------------------------------------------*/
+
 #include "SudokuFitness.h"
 
+//Counts the number of "collisions" in the given Sudoku object.  A 
+//collision is defined as an occurance of two identical numbers
+//in the same row, column, or box. If two numbers collide on the same
+//row or column and the same box at the same time, it is counted twice.
+//Returns: the fitness evaluation of the Puzzle.
 int SudokuFitness::howFit(Puzzle*  puzzle) const
 {
 	Sudoku sudoku = *(dynamic_cast<const Sudoku*>(puzzle));
@@ -70,56 +85,4 @@ int SudokuFitness::howFit(Puzzle*  puzzle) const
 		}
 	}
 	return numCollisions;
-}
-
-int SudokuFitness::getBoxStart(int i) const
-{
-	int boxNum = 0;
-	if (i < 27)
-	{
-		if (i % 9 < 3)
-			boxNum = 1;
-		else if (i % 9 < 6)
-			boxNum = 2;
-		else
-			boxNum = 3;
-	}
-	else if (i < 54)
-	{
-		if (i % 9 < 3)
-			boxNum = 4;
-		else if (i % 9 < 6)
-			boxNum = 5;
-		else
-			boxNum = 6;
-	}
-	else
-	{
-		if (i % 9 < 3)
-			boxNum = 7;
-		else if (i % 9 < 6)
-			boxNum = 8;
-		else
-			boxNum = 9;
-	}
-
-	int boxStart = -1;
-
-	switch (boxNum)
-	{
-	case 1: return 0;
-	case 2: return 3;
-	case 3: return 6;
-	case 4: return 27;
-	case 5: return 30;
-	case 6: return 33;
-	case 7: return 54;
-	case 8: return 57;
-	case 9: return 60;
-
-	default:
-		return -1;
-		break;
-	}
-
 }

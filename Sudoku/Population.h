@@ -1,3 +1,13 @@
+/*--------------------------------------------------------------------------------------------------
+/	File:			GeneticAlgorithm.h
+/	Last Updated:	March 13th 2017
+/	Created On:		Visual Studio 2015 Community, Windows 7, C++11
+/	Created By:		E. Ryan Berge, CSS 343 Section B
+/
+/	Description:	An interface for creating Population objects for use with the Genetic Algorithm
+/					Has methods for culling the population pool and creating new generations.
+/
+/--------------------------------------------------------------------------------------------------*/
 #pragma once
 #include "PuzzleFactory.h"
 #include "Reproduction.h"

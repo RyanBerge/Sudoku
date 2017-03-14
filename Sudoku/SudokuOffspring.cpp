@@ -1,8 +1,21 @@
+/*--------------------------------------------------------------------------------------------------
+/	File:			Sudoku.cpp
+/	Last Updated:	March 13th 2017
+/	Created On:		Visual Studio 2015 Community, Windows 7, C++11
+/	Created By:		E. Ryan Berge, CSS 343 Section B
+/
+/	Description:	An implementation of the Reproduction interface for Sudoku objects.
+/
+/--------------------------------------------------------------------------------------------------*/
+
 #include <chrono>
 #include <random>
 #include "SudokuOffspring.h"
 
-
+// Mutates the given Puzzle object by iterating through each cell and gives
+// a chance based on the MUTATION_THRESHOLD constant of changing it to a 
+// random new value.
+// Returns: The new, mutated Puzzle.
 Puzzle* SudokuOffspring::makeOffspring(Puzzle*  parent, int seed) const
 {
 	static thread_local std::mt19937 generator(seed);

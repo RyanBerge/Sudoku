@@ -1,3 +1,12 @@
+/*--------------------------------------------------------------------------------------------------
+/	File:			Sudoku.cpp
+/	Last Updated:	March 13th 2017
+/	Created On:		Visual Studio 2015 Community, Windows 7, C++11
+/	Created By:		E. Ryan Berge, CSS 343 Section B
+/
+/	Description:	An implementation of the PuzzleFactory interface for Sudoku objects.
+/
+/--------------------------------------------------------------------------------------------------*/
 #include "SudokuFactory.h"
 
 SudokuFactory::SudokuFactory(Reproduction* reproduction)
@@ -14,6 +23,10 @@ SudokuFactory::~SudokuFactory()
 	reproduction = nullptr;
 }
 
+//Uses the system time plus the seed modifier to define a randomization seed, then either
+//delegates down to the Reproduction object for a mutated puzzle or creates a 
+//non-mutation randomized Sudoku puzzle.
+//Returns: The new puzzle.
 Puzzle* SudokuFactory::createPuzzle(Puzzle*  parent, bool mutation, int seedModifier) const
 {
 	int seed = clock() + seedModifier;

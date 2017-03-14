@@ -1,3 +1,13 @@
+/*--------------------------------------------------------------------------------------------------
+/	File:			Sudoku.cpp
+/	Last Updated:	March 13th 2017
+/	Created On:		Visual Studio 2015 Community, Windows 7, C++11
+/	Created By:		E. Ryan Berge, CSS 343 Section B
+/
+/	Description:	A multi-threaded implementation of the Population interface for Sudoku objects.
+/
+/--------------------------------------------------------------------------------------------------*/
+
 #include "SudokuPopulation.h"
 #include "ThreadedSudokuPopulation.h"
 
@@ -32,6 +42,9 @@ ThreadedSudokuPopulation::~ThreadedSudokuPopulation()
 	}
 }
 
+// Uses the PuzzleFactory object and the Fitness objects to create an initial
+// random population of Sudoku Puzzles.  Spawns a new thread for the creation of
+// each Puzzle.
 void ThreadedSudokuPopulation::createPopulation(int initialSize, Puzzle* base)
 {
 	std::vector<std::thread> threads(initialSize);
@@ -46,6 +59,8 @@ void ThreadedSudokuPopulation::createPopulation(int initialSize, Puzzle* base)
 	}
 }
 
+// Eliminates the X% worst puzzles in the current population, where X is equal
+// to the culling ratio.
 bool ThreadedSudokuPopulation::cull(float ratio)
 {
 	if (ratio < 0 || ratio > 1)
@@ -78,6 +93,9 @@ bool ThreadedSudokuPopulation::cull(float ratio)
 	return true;
 }
 
+// Creates a new generation of Puzzles by mutating each puzzle in the 
+// current generation a number of times equal to numChildren.  Spawns
+// a new thread for each Puzzle to be created.
 void ThreadedSudokuPopulation::newGeneration(int numChildren)
 {
 	std::vector<Puzzle*> survivors;
@@ -103,6 +121,11 @@ void ThreadedSudokuPopulation::newGeneration(int numChildren)
 	{
 		threads[i].join();
 	}
+
+	for (int i = 0; i < survivors.size(); ++i)
+	{
+		delete survivors[i];
+	}
 }
 
 int ThreadedSudokuPopulation::bestFitness() const
@@ -115,6 +138,7 @@ Puzzle* ThreadedSudokuPopulation::bestIndividual() const
 	return generation.top();
 }
 
+// Safely locks the population container for when Puzzles need to be pushed.
 void ThreadedSudokuPopulation::safeGenerationPush(Puzzle* puzzle)
 {
 	lock.lock();
@@ -122,11 +146,12 @@ void ThreadedSudokuPopulation::safeGenerationPush(Puzzle* puzzle)
 	lock.unlock();
 }
 
+// The function used by the extra threads for creating new puzzles.
 void ThreadedSudokuPopulation::threadedAddNewPuzzle(Puzzle* base, bool mutation, int seedModifier)
 {
 	std::stringstream ss;
 	ss << std::this_thread::get_id();
-	uint64_t id = std::stoull(ss.str());
+	int id = std::stoull(ss.str());
 
 	Puzzle* puzzle = factory->createPuzzle(base, mutation, id);
 	puzzle->setFitness(fitness->howFit(puzzle));
