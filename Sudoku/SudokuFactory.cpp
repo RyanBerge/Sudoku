@@ -1,22 +1,20 @@
-#include "ThreadedSudokuFactory.h"
+#include "SudokuFactory.h"
 
-ThreadedSudokuFactory::ThreadedSudokuFactory(Reproduction* reproduction)
+SudokuFactory::SudokuFactory(Reproduction* reproduction)
 {
-	this->reproduction = dynamic_cast<ThreadedSudokuOffspring*>(reproduction);
+	this->reproduction = dynamic_cast<SudokuOffspring*>(reproduction);
 	if (this->reproduction == nullptr)
-		throw std::invalid_argument("ThreadedSudokuOffspring object required.");
+		throw std::invalid_argument("SudokuOffspring object required.");
 }
 
-ThreadedSudokuFactory::~ThreadedSudokuFactory()
+SudokuFactory::~SudokuFactory()
 {
 	if (reproduction != nullptr)
 		delete reproduction;
 	reproduction = nullptr;
-
-	
 }
 
-Puzzle* ThreadedSudokuFactory::createPuzzle(Puzzle*  parent, bool mutation, int seedModifier) const
+Puzzle* SudokuFactory::createPuzzle(Puzzle*  parent, bool mutation, int seedModifier) const
 {
 	int seed = clock() + seedModifier;
 

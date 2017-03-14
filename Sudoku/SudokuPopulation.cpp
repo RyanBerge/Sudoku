@@ -29,8 +29,6 @@ SudokuPopulation::~SudokuPopulation()
 			temp = nullptr;
 		}
 	}
-
-
 }
 
 void SudokuPopulation::createPopulation(int initialSize, Puzzle* base)
@@ -93,6 +91,8 @@ void SudokuPopulation::newGeneration(int numChildren)
 			temp->setFitness(fitness->howFit(temp));
 			generation.push(temp);
 		}
+		delete survivors[i];
+		survivors[i] = nullptr;
 	}
 }
 

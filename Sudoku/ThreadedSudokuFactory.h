@@ -10,6 +10,7 @@ public:
 	ThreadedSudokuFactory(Reproduction* reproduction);
 
 	// Inherited via PuzzleFactory
+	virtual ~ThreadedSudokuFactory();
 	virtual Puzzle* createPuzzle(Puzzle* parent, bool mutation, int seedModifier) const override;
 
 private:

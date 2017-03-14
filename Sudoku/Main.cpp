@@ -17,8 +17,8 @@ int main(int argc, char* argv[])
 
 	if (argc < 3)
 	{
-		initialSize = 200;
-		numGenerations = 400;
+		initialSize = 100;
+		numGenerations = 300;
 	}
 	else
 	{
@@ -45,6 +45,8 @@ int main(int argc, char* argv[])
 			if (algorithm.GetBestFitness() == 0)
 				break;
 		}
+		delete puzzle;
+		file.close();
 	}
 	else
 	{

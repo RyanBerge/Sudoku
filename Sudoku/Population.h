@@ -7,6 +7,7 @@ class Population
 {
 public:
 	virtual void createPopulation(int initialSize, Puzzle* base) = 0;
+	virtual ~Population() { };
 	virtual bool cull(float ratio) = 0;
 	virtual void newGeneration(int numChildren) = 0;
 	virtual int bestFitness() const = 0;
